@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazi Isfar Kabir Utsho - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f0f2f5;
+            --text-color: #333;
+            --card-background: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-container {
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .skill-category {
+            flex: 1;
+            background-color: #f1f3f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 10px;
+        }
+
+        .skill-category li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .skill-category li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--secondary-color);
+        }
+        .project-card .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+        @media screen and (max-width: 768px) {
+            .skills-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container">
+            <img src="/profile.jpg" alt="Kazi Isfar Kabir Utsha" class="profile-pic">
+            <h1>Kazi Isfar Kabir Utsha</h1>
+            <p class="subtitle">Computer Science & Engineering Student</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>Dedicated Computer Science & Engineering student passionate about web development and programming. Seeking opportunities to apply technical skills and contribute to innovative projects.</p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="/project1.png" alt="Personal Portfolio" class="project-image">
+                    <h3>Personal Portfolio</h3>
+                    <p>Developed a responsive personal portfolio website showcasing skills and projects.</p>
+                    <a href="./index.html" class="btn">View Project</a>
+                </div>
+                <div class="project-card">
+                    <img src="/project2.png" alt="Student Account Index" class="project-image">
+                    <h3>Student Account Index</h3>
+                    <p>Created a comprehensive student account management system with intuitive interface.</p>
+                    <a href="/sli/index.html" class="btn">View Project</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fab fa-java"></i> Java</li>
+                        <li><i class="fab fa-python"></i> Python</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <ul>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fab fa-react"></i> React</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li><i class="fab fa-git"></i> Git</li>
+                        <li><i class="fas fa-code"></i> VS Code</li>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/yourgithub" class="social-icon" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="http://linkedin.com/in/yourlinkedin" class="social-icon" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:kazi176ishfar@gmail.com" class="social-icon">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Kazi Isfar Kabir Utsha. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contact-form');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const nameInput = contactForm.querySelector('input[type="text"]');
+                const emailInput = contactForm.querySelector('input[type="email"]');
+                const messageInput = contactForm.querySelector('textarea');
+
+                if (nameInput.value.trim() === '' || 
+                    emailInput.value.trim() === '' || 
+                    messageInput.value.trim() === '') {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                alert('Message sent successfully! We will get back to you soon.');
+                contactForm.reset();
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
